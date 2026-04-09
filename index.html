@@ -23,6 +23,93 @@
       }
     };
   </script>
+  <style>
+    .paw-underline {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    .paw-underline::after {
+      content: "🐾";
+      position: absolute;
+      left: 0;
+      bottom: -0.2rem;
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+
+    .paw-underline::before {
+      content: "";
+      position: absolute;
+      left: 1.4rem;
+      right: 0;
+      bottom: 0.1rem;
+      height: 2px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, rgba(192, 138, 82, 0.75), rgba(192, 138, 82, 0.15));
+    }
+
+    .pink-paw {
+      position: absolute;
+      font-size: 1.8rem;
+      line-height: 1;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.65) rotate(-12deg);
+      filter: drop-shadow(0 8px 16px rgba(251, 182, 206, 0.28));
+      color: #f7a8c3;
+    }
+
+    .pink-paw svg {
+      display: block;
+      width: 1.9rem;
+      height: 1.9rem;
+    }
+
+    .pink-paw.is-bouncing {
+      animation: paw-pop 0.7s ease-out;
+    }
+
+    .secret-reveal {
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      white-space: nowrap;
+      transform: translateX(-8px);
+      transition: max-width 0.35s ease, opacity 0.25s ease, transform 0.25s ease, margin-left 0.25s ease;
+      margin-left: 0;
+    }
+
+    .secret-reveal.is-visible {
+      max-width: 18rem;
+      opacity: 1;
+      transform: translateX(0);
+      margin-left: 0.75rem;
+    }
+
+    @keyframes paw-pop {
+      0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.45) rotate(-18deg);
+      }
+
+      35% {
+        opacity: 1;
+        transform: translateY(-14px) scale(1.08) rotate(4deg);
+      }
+
+      55% {
+        opacity: 1;
+        transform: translateY(-4px) scale(0.92) rotate(-6deg);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-24px) scale(1.12) rotate(10deg);
+      }
+    }
+  </style>
 </head>
 <body class="bg-gradient-to-b from-cream via-white to-orange-50 text-ink">
   <header class="sticky top-0 z-50 border-b border-orange-100 bg-white/85 backdrop-blur">
@@ -55,8 +142,8 @@
             欢迎来到猫猫的虚拟空间
           </p>
           <div class="space-y-4">
-            <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">年糕的个喵主页</h1>
-            <p class="max-w-2xl text-lg leading-8 text-gray-600">
+            <h1 class="paw-underline text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">年糕的个喵主页</h1>
+            <p class="paw-underline max-w-2xl text-lg leading-8 text-gray-600">
               一页看完这只可爱美短起司的日常偏好、基本资料和一点点神秘感。
             </p>
           </div>
@@ -103,14 +190,14 @@
       <div class="mb-8">
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-caramel">About</p>
-          <h2 class="mt-2 text-3xl font-bold text-gray-900">个喵简介</h2>
+          <h2 class="paw-underline mt-2 text-3xl font-bold text-gray-900">个喵简介</h2>
         </div>
       </div>
       <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
         <article class="overflow-hidden rounded-[1.75rem] bg-white shadow-soft ring-1 ring-gray-100">
           <img src="./2.jpg" alt="年糕简介图片" class="h-64 w-full object-cover sm:h-72">
           <div class="p-8">
-            <p class="text-lg leading-8 text-gray-700">
+            <p class="paw-underline text-lg leading-8 text-gray-700">
               美短起司，3岁9个月，7斤。
             </p>
             <p class="mt-4 text-gray-500">
@@ -139,24 +226,24 @@
       <div class="mb-8">
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-caramel">Like</p>
-          <h2 class="mt-2 text-3xl font-bold text-gray-900">喜欢吃的？</h2>
+          <h2 class="paw-underline mt-2 text-3xl font-bold text-gray-900">喜欢吃的？</h2>
         </div>
       </div>
       <div class="grid gap-6 md:grid-cols-3">
         <article class="rounded-[1.75rem] bg-white p-8 shadow-soft ring-1 ring-gray-100">
           <div class="text-3xl">🌿</div>
-          <h3 class="mt-5 text-xl font-semibold text-gray-900">猫草</h3>
-          <p class="mt-3 leading-7 text-gray-600">轻盈清新，是日常放松和探索气味的小快乐。</p>
+          <h3 class="paw-underline mt-5 text-xl font-semibold text-gray-900">猫草</h3>
+          <p class="paw-underline mt-3 leading-7 text-gray-600">轻盈清新，是日常放松和探索气味的小快乐。</p>
         </article>
         <article class="rounded-[1.75rem] bg-white p-8 shadow-soft ring-1 ring-gray-100">
           <div class="text-3xl">🥣</div>
-          <h3 class="mt-5 text-xl font-semibold text-gray-900">猫条</h3>
-          <p class="mt-3 leading-7 text-gray-600">只要一拿出来，注意力立刻满格，情绪价值也直接拉满。</p>
+          <h3 class="paw-underline mt-5 text-xl font-semibold text-gray-900">猫条</h3>
+          <p class="paw-underline mt-3 leading-7 text-gray-600">只要一拿出来，注意力立刻满格，情绪价值也直接拉满。</p>
         </article>
         <article class="rounded-[1.75rem] bg-white p-8 shadow-soft ring-1 ring-gray-100">
           <div class="text-3xl">🐟</div>
-          <h3 class="mt-5 text-xl font-semibold text-gray-900">小鱼干</h3>
-          <p class="mt-3 leading-7 text-gray-600">香气十足，属于看到就很难保持矜持的心头好。</p>
+          <h3 class="paw-underline mt-5 text-xl font-semibold text-gray-900">小鱼干</h3>
+          <p class="paw-underline mt-3 leading-7 text-gray-600">香气十足，属于看到就很难保持矜持的心头好。</p>
         </article>
       </div>
     </section>
@@ -165,7 +252,7 @@
       <div class="mb-8">
         <div>
           <p class="text-sm font-semibold uppercase tracking-[0.2em] text-caramel">Stories</p>
-          <h2 class="mt-2 text-3xl font-bold text-gray-900">了解更多</h2>
+          <h2 class="paw-underline mt-2 text-3xl font-bold text-gray-900">了解更多</h2>
         </div>
       </div>
       <div class="overflow-hidden rounded-[2rem] bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 p-[1px] shadow-soft">
@@ -173,14 +260,57 @@
           <div>
             <img src="./1.jpg" alt="年糕更多故事图片" class="mb-6 h-56 w-full rounded-[1.5rem] object-cover">
             <p class="text-sm font-semibold uppercase tracking-[0.25em] text-orange-200">Other</p>
-            <h3 class="mt-3 text-2xl font-bold">保密喵~</h3>
+            <div class="mt-3 flex flex-wrap items-center">
+              <button id="secret-trigger" type="button" class="paw-underline relative rounded-full px-1 text-left text-2xl font-bold text-white transition hover:text-orange-200 focus:outline-none focus:ring-2 focus:ring-orange-200/70 focus:ring-offset-2 focus:ring-offset-gray-900">
+                保密喵~
+                <span id="secret-paw" class="pink-paw" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="18" cy="18" rx="7" ry="9"/>
+                    <ellipse cx="31" cy="13" rx="7" ry="9"/>
+                    <ellipse cx="45" cy="18" rx="7" ry="9"/>
+                    <ellipse cx="53" cy="31" rx="6" ry="8"/>
+                    <path d="M31 28c-10 0-18 7-18 17 0 8 6 12 12 12 4 0 6-2 8-4 2 2 4 4 8 4 6 0 12-4 12-12 0-10-8-17-22-17Z"/>
+                  </svg>
+                </span>
+              </button>
+              <div id="secret-reveal" class="secret-reveal rounded-full bg-orange-100 px-4 py-2 text-sm font-semibold text-gray-900">
+                打赏年糕罐罐<span id="secret-count">0</span>个
+              </div>
+            </div>
           </div>
-          <p class="text-lg leading-8 text-gray-300">
+          <p class="paw-underline text-lg leading-8 text-gray-300">
             有些故事只留给真正熟悉的小伙伴。这个楼层先卖个关子，等下次再解锁更多年糕的小秘密。
           </p>
         </div>
       </div>
     </section>
   </main>
+  <script>
+    const secretTrigger = document.getElementById("secret-trigger");
+    const secretReveal = document.getElementById("secret-reveal");
+    const secretCount = document.getElementById("secret-count");
+    const secretPaw = document.getElementById("secret-paw");
+
+    let clickCount = 0;
+
+    if (secretTrigger && secretReveal && secretCount) {
+      secretTrigger.addEventListener("click", () => {
+        clickCount += 1;
+        secretCount.textContent = String(clickCount);
+        secretReveal.classList.add("is-visible");
+
+        if (secretPaw) {
+          secretPaw.classList.remove("is-bouncing");
+          const randomX = Math.floor(Math.random() * 68) - 16;
+          const randomY = Math.floor(Math.random() * 28) - 24;
+          secretPaw.style.left = `${randomX}px`;
+          secretPaw.style.top = `${randomY}px`;
+          secretPaw.style.filter = "drop-shadow(0 8px 16px rgba(255, 182, 193, 0.5)) saturate(1.15)";
+          void secretPaw.offsetWidth;
+          secretPaw.classList.add("is-bouncing");
+        }
+      });
+    }
+  </script>
 </body>
 </html>
